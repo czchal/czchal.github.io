@@ -6,164 +6,64 @@
     <title>Chala Adane Deresa - Academic Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
-    <script defer src="assets/main.js"></script>PE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chala Adane- Academic Website</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <style>
-        :root {
-            --primary-bg: #f8f9fa;
-            --primary-text: #222;
-            --card-bg: #fcfcfc;
-            --accent: #003366;
-        }
-        body.night {
-            --primary-bg: #181a20;
-            --primary-text: #e3e6ee;
-            --card-bg: #23262f;
-            --accent: #90caf9;
-        }
-        body {
-            background: var(--primary-bg);
-            color: var(--primary-text);
-            transition: background 0.3s, color 0.3s;
-        }
-        header, nav a, h2 {
-            color: var(--accent);
-        }
-        main {
-            background: var(--card-bg);
-            transition: background 0.3s;
-        }
-        .night-toggle {
-            position: absolute;
-            top: 1.2em;
-            right: 2em;
-            background: var(--card-bg);
-            color: var(--accent);
-            border: none;
-            border-radius: 20px;
-            padding: 0.5em 1.2em;
-            font-size: 1em;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-            transition: background 0.3s, color 0.3s;
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px) scale(0.98);
-            animation: fadeInUp 1s cubic-bezier(.77,0,.175,1) forwards;
-        }
-        .fade-in.delay-1 { animation-delay: 0.2s; }
-        .fade-in.delay-2 { animation-delay: 0.4s; }
-        .fade-in.delay-3 { animation-delay: 0.6s; }
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
-    <script>
-        function toggleNightMode() {
-            document.body.classList.toggle('night');
-            localStorage.setItem('nightMode', document.body.classList.contains('night'));
-        }
-        window.onload = function() {
-            if(localStorage.getItem('nightMode') === 'true') {
-                document.body.classList.add('night');
-            }
-        }
-    </script>
+    <script defer src="assets/main.js"></script>
 </head>
 <body>
-    <header>
-        <button class="night-toggle" onclick="toggleNightMode()">🌙 Night Mode</button>
-        <h1>Chala Adane Deresa</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="publications.html">Publications</a>
-            <a href="blog.html">Blog</a>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Bio</h2>
-            <p>I am a graduate research student pursuing a Master's degree in Aerospace Engineering at <a href="https://www.kaist.ac.kr/kr/" target="_blank" rel="noopener">KAIST</a>. As a member of the <a href="https://lics.kaist.ac.kr/" target="_blank" rel="noopener">Laboratory for Information and Control Systems (LiCS)</a>, I have the privilege of being advised by Professor <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en" target="_blank" rel="noopener">Hanlim Choi</a>.
 
-My work focuses on applying principles from modern control theory and mathematical optimization to solve complex challenges in spacecraft Guidance, Navigation, and Control (GNC). My specific focus is on developing robust and efficient algorithms that enable greater autonomy in spacecraft missions and mobile robotics.</p>
-       </section>
-        <section>
-            <h2>Selected Publications</h2>
-            <ul>
-                <li>
-                    <strong>Chala Adane Deresa</strong>, Dong-Woo Han, Han-Lim Choi. "Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions." <em>CAMSAT 2025</em>. (Accepted)
-                </li>
-                <li>
-                    <strong>Chala Adane Deresa</strong>, Joshua Julian Damanik, Han-Lim Choi. "Hierarchical Navigation in Cluttered Environments for Differential-Drive Robots via Spatio-Temporal Risk and Nonlinear MPC." <em>ICCAS 2025</em>. (Accepted)
-                </li>
-                 <li>
-                    Joshua Julian Damanik, Jae-Won Jung, <strong>Chala Adane Deresa</strong>, Han-Lim Choi. "Lics: Navigation using learned-imitation on cluttered space." <em>IEEE Robotics and Automation Letters</em>, 2024.
-                </li>
-                <li>
-                    <strong>Chala Adane Deresa</strong>, Nam Gihun, Jiyun Lee. "Performance Analysis of RAIM-based Integrity Monitoring Algorithm for LADGNSS/Barometer Sensor Integrated Navigation System." <em>Korean Navigation Institute (KONI) Conference</em>, 2023. <strong>(Best Paper Award)</strong>
-                </li>
-                <li>
-                    <strong>Chala Adane Deresa</strong>, Minchae Kim, Sung Jun Kim, Han-Lim Choi. "Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game."  <em>AIAA Scitech 2026</em>. (Accepted)
-                </li>
-            </ul>
-            <p><a href="publications.html">See all publications</a></p>
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>Short description of Project One. <a href="#">Learn more</a></p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>Short description of Project Two. <a href="#">Learn more</a></p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>Short description of Project Three. <a href="#">Learn more</a></p>
-                </div>
+    <div class="container">
+        <header>
+            <div class="site-title">
+                <a href="index.html">Chala Adane Deresa</a>
             </div>
-        </section>
-        <section class="fade-in delay-3">
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>Short description of Project One. <a href="#">Learn more</a></p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>Short description of Project Two. <a href="#">Learn more</a></p>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>Short description of Project Three. <a href="#">Learn more</a></p>
-                </div>
-            </div>
-        </section>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="publications.html">Publications</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+        </header>
 
-    <!-- #linkedin github googlescholar researchgate orcid -->
-    <div class="social-links">
-        <a href="https://www.linkedin.com/in/chala-adane-23b5a917a/" target="_blank" rel="noopener">LinkedIn</a> |
-        <a href="https://github.com/czchal" target="_blank" rel="noopener">GitHub</a> | 
-        <a href="https://scholar.google.com/citations?user=oLDwalEAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a> |
-    </main>
-    <footer>
-        <p>&copy; 2025 Chala Adane Deresa</p>
-    </footer>
+        <main>
+            <section class="content-card fade-in">
+                <h2>Biography</h2>
+                <p>
+                    I am a graduate research student pursuing a Master's degree in Aerospace Engineering at <a href="https://www.kaist.ac.kr/kr/" target="_blank" rel="noopener">KAIST</a>. As a member of the <a href="https://lics.kaist.ac.kr/" target="_blank" rel="noopener">Laboratory for Information and Control Systems (LiCS)</a>, I am advised by Professor <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en" target="_blank" rel="noopener">Hanlim Choi</a>. My research focuses on control theory, optimization, and their applications to spacecraft GNC and autonomous robotics.
+                </p>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/chala-adane-23b5a917a/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="https://github.com/czchal" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://scholar.google.com/citations?user=oLDwalEAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+                </div>
+            </section>
+            
+            <section class="content-card fade-in">
+                <h2>Selected Publications</h2>
+                <ul>
+                    <li><strong>Chala Adane Deresa</strong>, Minchae Kim, Sung Jun Kim, Han-Lim Choi. "Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game." <em>AIAA Scitech 2026</em>. (Under Review)</li>
+                    <li><strong>Chala Adane Deresa</strong>, Dong-Woo Han, Han-Lim Choi. "Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions." <em>CAMSAT 2025</em>. (Accepted)</li>
+                    <li><strong>Chala Adane Deresa</strong>, Joshua Julian Damanik, Han-Lim Choi. "Hierarchical Navigation in Cluttered Environments for Differential-Drive Robots via Spatio-Temporal Risk and Nonlinear MPC." <em>ICCAS 2025</em>. (Accepted)</li>
+                    <li>Joshua Julian Damanik, Jae-Won Jung, <strong>Chala Adane Deresa</strong>, Han-Lim Choi. "Lics: Navigation using learned-imitation on cluttered space." <em>IEEE Robotics and Automation Letters</em>, 2024.</li>
+                    <li><strong>Chala Adane Deresa</strong>, Nam Gihun, Jiyun Lee. "Performance Analysis of RAIM-based Integrity Monitoring Algorithm for LADGNSS/Barometer Sensor Integrated Navigation System." <em>Korean Navigation Institute (KONI) Conference</em>, 2023. <strong>(Best Paper Award)</strong></li>
+                </ul>
+                <p style="text-align: right;"><a href="publications.html">See all publications &raquo;</a></p>
+            </section>
+
+            <section class="content-card fade-in">
+                <h2>Projects</h2>
+                <p>Information about current and past projects will be updated here soon.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Chala Adane Deresa</p>
+        </footer>
+    </div>
+
 </body>
-</html> 
-
+</html>

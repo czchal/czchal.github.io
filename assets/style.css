@@ -1,7 +1,6 @@
-/* --- Global Styles & Variables --- */
+/* --- Global Styles & Theme Variables --- */
 :root {
-    --primary-color: #005A9C; /* A professional blue */
-    --secondary-color: #1a73e8;
+    --primary-color: #005A9C; /* Professional blue for light mode */
     --text-color: #333;
     --light-text-color: #555;
     --bg-color: #f8f9fa;
@@ -9,6 +8,17 @@
     --border-color: #dee2e6;
     --header-font: 'Lora', serif;
     --body-font: 'Inter', sans-serif;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode {
+    --primary-color: #90caf9; /* Lighter blue for dark mode */
+    --text-color: #e3e6ee;
+    --light-text-color: #adb5bd;
+    --bg-color: #181a20;
+    --card-bg-color: #23262f;
+    --border-color: #495057;
+    --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
 body {
@@ -18,6 +28,7 @@ body {
     background-color: var(--bg-color);
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -57,20 +68,32 @@ nav a.active {
     color: var(--primary-color);
 }
 
-/* --- Main Content --- */
-h1, h2 {
+/* --- Theme Toggle Button --- */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0;
+    margin-left: 20px;
+}
+.moon-icon { display: none; }
+.dark-mode .sun-icon { display: none; }
+.dark-mode .moon-icon { display: inline; }
+
+
+/* --- Main Content & Cards --- */
+main {
+    padding-top: 20px;
+}
+
+h1, h2, h3 {
     font-family: var(--header-font);
-    color: #111;
+    color: var(--text-color);
     margin-top: 0;
 }
 
-h1 {
-    font-size: 2.5rem;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-    display: inline-block;
-}
-
+h1 { font-size: 2.5rem; }
 h2 {
     font-size: 1.7rem;
     color: var(--primary-color);
@@ -79,41 +102,24 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* --- Introduction Section Layout --- */
-.intro-section {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 40px;
-    align-items: flex-start;
-    margin-bottom: 40px;
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
 }
 
-.profile-picture-container {
-    text-align: center;
-}
-
-.profile-picture {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid var(--card-bg-color);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.bio-container p {
-    font-size: 1.1rem;
-    margin-bottom: 1em;
-}
-
-/* --- Content Card Styling --- */
 .content-card {
     background-color: var(--card-bg-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .content-card ul {
@@ -136,11 +142,43 @@ h2 {
     color: var(--primary-color);
 }
 
-.skills-list li {
-    padding-left: 0;
+/* --- Specific Section Styles --- */
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 40px;
 }
-.skills-list li::before {
-    content: ''; /* Remove the default bullet for skills */
+
+.profile-picture {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 5px solid var(--card-bg-color);
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.social-links a {
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* --- Footer --- */
@@ -158,168 +196,10 @@ footer {
     header {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
+        gap: 20px;
     }
-    
-    nav {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    nav a {
-        margin: 0 15px;
-    }
-
     .intro-section {
         grid-template-columns: 1fr; /* Stack columns */
         text-align: center;
-    }
-
-/* --- Modern Card & Project Styles --- */
-.content-card {
-    background: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 32px 28px;
-    margin-bottom: 32px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-    transition: box-shadow 0.3s;
-}
-.content-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-}
-
-/* Base styles and CSS variables */
-:root {
-    --primary-color: #005A9C;
-    --secondary-color: #1a73e8;
-    --accent-color: #4285f4;
-    --text-color: #2c3e50;
-    --text-light: #666;
-    --background: #ffffff;
-    --background-alt: #f8f9fa;
-    --card-bg: #ffffff;
-    --border-color: #eaeaea;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
-    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
-    --header-height: 70px;
-    --container-width: 1200px;
-    --transition-speed: 0.3s;
-}
-
-.dark-theme {
-    --primary-color: #64B5F6;
-    --secondary-color: #90CAF9;
-    --accent-color: #42A5F5;
-    --text-color: #E0E0E0;
-    --text-light: #BDBDBD;
-    --background: #1a1a1a;
-    --background-alt: #2d2d2d;
-    --card-bg: #2d2d2d;
-    --border-color: #404040;
-}
-
-/* Global styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background: var(--background);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-}
-
-.container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
-/* Header styles */
-header {
-    height: var(--header-height);
-    background: var(--background);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color var(--transition-speed);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-.project-card {
-    background: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    padding: 20px;
-    flex: 1 1 220px;
-    min-width: 220px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.project-card:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-}
-
-.social-links {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    margin-top: 10px;
-}
-.social-links a img {
-    vertical-align: middle;
-    transition: transform 0.2s;
-}
-.social-links a:hover img {
-    transform: scale(1.15);
-}
-
-/* --- Fade-in Animation --- */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px) scale(0.98);
-    animation: fadeInUp 1s cubic-bezier(.77,0,.175,1) forwards;
-}
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: none;
-    }
-}
-
-/* --- Night Mode --- */
-body.night {
-    --bg-color: #181a20;
-    --card-bg-color: #23262f;
-    --text-color: #e3e6ee;
-    --light-text-color: #b0b8c1;
-    --border-color: #2c2f36;
-}
-
-/* ...existing code... */
-    .profile-picture-container {
-        margin-bottom: 20px;
-    }
-
-    h1 {
-        font-size: 2rem;
     }
 }
