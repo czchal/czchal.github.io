@@ -6,13 +6,18 @@
     margin-top: 1em;
 }
 .project-card {
-    background: #f0f4f8;
-    border: 1px solid #dbe2ea;
-    border-radius: 8px;
+    background: #f6f8fa;
+    border: 1px solid #e3e8ee;
+    border-radius: 10px;
     padding: 1em;
     width: 220px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
     text-align: left;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.project-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+    transform: translateY(-4px) scale(1.03);
 }
 .project-card h3 {
     margin-top: 0;
@@ -27,11 +32,13 @@
     text-decoration: underline;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background: #f8f9fa;
     color: #222;
+    min-height: 100vh;
+    letter-spacing: 0.01em;
 }
 header {
     background: #003366;
@@ -50,11 +57,34 @@ nav a:hover {
 }
 main {
     max-width: 800px;
-    margin: 2em auto;
+    margin: 2em auto 4em auto;
     background: #fff;
     padding: 2em;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+h2 {
+    color: #003366;
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+}
+
+section {
+    margin-bottom: 2em;
+    padding: 1.5em 1em;
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+    background: #fcfcfc;
+    transition: box-shadow 0.2s;
+}
+section:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+
+.publications {
+    margin-bottom: 1em;
+    padding-left: 1.2em;
+}
 }
 footer {
     text-align: center;
