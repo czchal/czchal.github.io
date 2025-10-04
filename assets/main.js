@@ -65,3 +65,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   elements.forEach(el => observer.observe(el));
 });
+
+// === Load News Items from JSON with Show More/Show Less ===
+fetch("assets/news.json")
+  .then(res => res.json())
+  .then(items => {
+    const list = document.querySelector("#news .news-list");
+    const toggleBtn = document.getElementById("toggle-news");
+    list.innerHTML = "";
+
+    const maxVisible = 8; // number of items to show initially
+    let expanded = false;
+
+    function render() {
+      list.innerHTML = "";
+      const visibleItems = expanded ? items : items.slice(0, maxVisible);
+      visibleItems.forEach(item => {
+        const li = document.createElement("li");
+        li.innerHTML = `<span class="date">${item.date}</span> — ${item.text}`;
+        list.appendChild(li);
+      });
+
+      if (items.length > maxVisible) {
+        toggleBtn.style.display = "inline-block";
+        toggleBtn.textContent = expanded ? "Show Less" : "Show More";
+      } else {
+        toggleBtn.style.display = "none";
+      }
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      expanded = !expanded;
+      render();
+    });
+
+    render();
+  })
+  .catch(err => console.error("Error loading news:", err));

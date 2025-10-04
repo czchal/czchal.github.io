@@ -33,9 +33,9 @@
 
         <main>
             <section class="content-card fade-in">
-                <h2>Biography</h2>
+                <h2>Welcome to my personal website.</h2>
                 <p>
-                    I am a graduate research student pursuing a Master's degree in Aerospace Engineering at <a href="https://www.kaist.ac.kr/kr/" target="_blank" rel="noopener">KAIST</a>. As a member of the <a href="https://lics.kaist.ac.kr/" target="_blank" rel="noopener">Laboratory for Information and Control Systems (LiCS)</a>, I am advised by Professor <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en" target="_blank" rel="noopener">Hanlim Choi</a>. My research focuses on control theory, optimization, and their applications to spacecraft GNC and autonomous robotics.
+                    I am a graduate research student pursuing a Master's degree in Aerospace Engineering at <a href="https://www.kaist.ac.kr/kr/" target="_blank" rel="noopener">KAIST</a>. As a member of the <a href="https://lics.kaist.ac.kr/" target="_blank" rel="noopener">Laboratory for Information and Control Systems (LiCS)</a>, I am advised by Professor <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en" target="_blank" rel="noopener">Hanlim Choi</a>. My research focuses on control theory, optimization, and their applications to spacecraft GNC and robotics.
                 </p>
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/chala-adane-23b5a917a/" target="_blank" rel="noopener">LinkedIn</a>
@@ -56,10 +56,112 @@
                 <p style="text-align: right;"><a href="publications.html">See all publications &raquo;</a></p>
             </section>
 
-            <section class="content-card fade-in">
+
+            <section id="news" class="content-card fade-in">
+                <h2>📢 News</h2>
+                <ul class="news-list"></ul>
+                <button id="toggle-news" class="news-toggle">Show More</button>
+              </section>
+
+
+              <section class="content-card fade-in">
                 <h2>Projects</h2>
                 <p>Information about current and past projects will be updated here soon.</p>
             </section>
+              
+              
+              
+            <!-- Firebase SDKs -->
+            <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+            <div id="visitor-stats" class="content-card fade-in">
+            <h2>🌍</h2>
+            <p id="summary"></p>
+            <ul id="country-list" style="list-style:none; padding-left:0;"></ul>
+            </div>
+
+            <script type="module">
+            
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyC8AXZMQoGk56hIo_HyTk8977C_x7ppk4k",
+                authDomain: "visitor-counter-3a3b5.firebaseapp.com",
+                projectId: "visitor-counter-3a3b5",
+                storageBucket: "visitor-counter-3a3b5.firebasestorage.app",
+                messagingSenderId: "317453956789",
+                appId: "1:317453956789:web:46f99cbae9d70083d770fc",
+                measurementId: "G-9M30F3Y5R3"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+
+            // --- 2. Get visitor country via IP API ---
+            fetch("https://ipapi.co/json/")
+                .then(res => res.json())
+                .then(async data => {
+                const country = data.country_name;
+                const code = data.country_code;
+
+                if (!country || !code) return;
+
+                const ref = doc(db, "visitors", country);
+
+                const snap = await getDoc(ref);
+                if (snap.exists()) {
+                    await updateDoc(ref, { count: snap.data().count + 1, code: code });
+                } else {
+                    await setDoc(ref, { count: 1, code: code });
+                }
+                });
+
+            // --- 3. Live listener to render counts ---
+            import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+            const colRef = collection(db, "visitors");
+
+            onSnapshot(colRef, snapshot => {
+                const data = {};
+                snapshot.forEach(doc => {
+                data[doc.id] = doc.data();
+                });
+                renderCounts(data);
+            });
+
+            function renderCounts(counts) {
+                const list = document.getElementById("country-list");
+                const summary = document.getElementById("summary");
+                list.innerHTML = "";
+
+                const countries = Object.keys(counts);
+                summary.textContent = `${countries.length} countries visited`;
+
+                countries.forEach(country => {
+                const { count, code } = counts[country];
+                const flag = countryCodeToFlag(code);
+                const li = document.createElement("li");
+                li.textContent = `${flag} ${country}: ${count}`;
+                list.appendChild(li);
+                });
+            }
+
+            function countryCodeToFlag(code) {
+                if (!code) return "🏳️";
+                return code.replace(/./g, char =>
+                String.fromCodePoint(char.charCodeAt(0) + 127397)
+                );
+            }
+            </script>
+
+  
         </main>
 
         <footer>

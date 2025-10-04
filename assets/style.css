@@ -51,7 +51,7 @@ header {
   position: sticky; top: 0; z-index: 50;
   display: grid; grid-template-columns: 1fr auto auto; gap: 16px;
   align-items: center;
-  padding: 18px 0;
+  padding: 18px 32px;
   backdrop-filter: blur(10px);
   background: color-mix(in srgb, var(--surface) 75%, transparent);
   border-bottom: 1px solid var(--border);
@@ -135,6 +135,67 @@ a:hover { text-decoration: underline; }
   content: ""; position: absolute; left: 0; top: .9em; width: 10px; height: 10px;
   border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-600));
   transform: translateY(-50%);
+}
+
+/* News timeline */
+.news-list {
+  list-style: none;
+  margin: 1;
+
+  /* Push timeline inward */
+  margin-left: 4.5rem;   /* increase spacing from card edge */
+  padding-left: 3rem;
+
+  /* border-left: 2px solid var(--border); */
+}
+
+.news-list li {
+  position: relative;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+
+/* .news-list li::before {
+  content: "";
+  position: absolute;
+  left: -1.0rem;   /* adjust so the dot aligns with the line */
+  top: 0.8em;      /* fine-tune vertical alignment with text */
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--surface);
+} */
+
+
+
+.news-list .date {
+  font-weight: 600;
+  font-family: monospace;
+  color: var(--primary);
+  display: inline-block;
+  margin-right: 8px;
+  min-width: 70px;
+}
+
+
+.news-toggle {
+  margin-top: 12px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.news-toggle:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 /* Social links */
