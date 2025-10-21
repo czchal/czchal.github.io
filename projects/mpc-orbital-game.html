@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game">
+  <meta name="keywords" content="MPC, Orbital Mechanics, Differential Game, Control Theory">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+    <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .hero { background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%); color: white; }
+    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 700; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .author-block a { color: #f0f9ff; text-decoration: none; }
+    .author-block a:hover { text-decoration: underline; }
+    .link-block { margin: 5px; }
+    .button { border-radius: 25px; font-weight: 600; }
+    .section { padding: 3rem 1.5rem; }
+    .container.is-max-desktop { max-width: 960px; }
+    .teaser { background: #f0f9ff; border-radius: 15px; overflow: hidden; }
+    .method-overview { background: linear-gradient(45deg, #f0f9ff, #e0f2fe); border-radius: 15px; padding: 2rem; margin: 2rem 0; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+    .result-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
+    .result-card:hover { transform: translateY(-4px); }
+    .citation-box { background: #f8f9fa; border-left: 4px solid #38bdf8; padding: 1rem; font-family: monospace; border-radius: 0 8px 8px 0; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <span style="font-weight: bold; color: #38bdf8;">Chala Adane Deresa</span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../index.html">Home</a>
+      <a class="navbar-item" href="../about.html">About</a>
+      <a class="navbar-item" href="../publications.html">Publications</a>
+      <a class="navbar-item" href="../blog.html">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="../index.html"><strong>Chala Adane Deresa</strong></a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Minchae Kim</a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Sung Jun Kim</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en">Han-Lim Choi</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">KAIST, Laboratory for Information and Control Systems</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <!-- Supplementary Link -->
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Supplementary</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-14">
+          <img src="../assets/thumbnails/mpc-orbital-game.png" alt="MPC Orbital Game Teaser" style="width: 100%; border-radius: 10px;">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+          <p>
+            This paper presents a framework for autonomous planning and control of an attacker (Bandit) in the orbital target guarding game, where the Bandit seeks to capture a target (Lady) while evading interception by a defender (Guard). The challenge lies in computing strategies in a non-cooperative orbital environment, particularly when the defender's strategy is unknown.
+          </p>
+          <p>
+            We introduce the Iterative Best Response Model Predictive Control (iBR-MPC) framework, which enables the Bandit to iteratively refine its trajectory based on observed Guard behavior. The algorithm incorporates sensitivity augmentation to dampen oscillations and uses a shrinking-horizon implementation for real-time feasibility. The framework was validated using a Kerbal Space Program-based differential game simulation suite and successfully secured first place in the 2nd Annual AIAA Non-Cooperative Space Operations Challenge.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="method-overview">
+      <h2 class="title is-3 has-text-centered">Methodology</h2>
+      
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-4">Orbital Differential Game</h3>
+          <div class="content">
+            <p>We formulate a three-player Lady-Bandit-Guard scenario where the Bandit attempts to intercept the Lady while avoiding the Guard. The problem uses Clohessy-Wiltshire dynamics in a relative reference frame centered on the Lady.</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <h3 class="title is-4">iBR-MPC Framework</h3>
+          <div class="content">
+            <p>The iterative best response algorithm alternates between optimizing Bandit and Guard strategies. Sensitivity augmentation dampens oscillations by incorporating opponent response gradients into each player's cost function.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-4">Real-Time Implementation</h3>
+          <div class="content">
+            <p>A shrinking-horizon MPC approach enables real-time operation with adaptive safety constraints. The Guard avoidance distance is dynamically updated based on observed behavior patterns.</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <h3 class="title is-4">KSP Environment</h3>
+          <div class="content">
+            <p>The algorithm operates in the Kerbal Space Program Differential Game environment, providing realistic physics-based simulation with continuous time progression during computation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Demonstration</h2>
+        <div style="background: #f8f9fa; border: 0.2px dashed #38bdf8; border-radius: 10px; padding: 1rem; text-align: center; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div>
+            <h3 class="title is-4" style="color: #38bdf8; margin-bottom: 1rem;">Competition Winning Strategy</h3>
+            <p style="color: #6b7280; max-width: 500px; margin: 0 auto;">
+              Demonstration of the iBR-MPC algorithm in action during the AIAA Non-Cooperative Space Operations Challenge, showing the Bandit successfully intercepting the Lady while evading the Guard across different scenarios.
+            </p>
+            <p style="color: #9ca3af; margin-top: 1rem; font-size: 0.9em;">
+              Video will be available upon publication
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Visualizations -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results & Trajectory Analysis</h2>
+    
+    <!-- Side-by-Side Trajectory Comparison -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <!-- Inertial Frame -->
+      <div class="column is-7">
+        <h4 class="subtitle is-6 has-text-centered">Inertial Frame Trajectories</h4>
+        <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <div style="position: relative;">
+            <img src="../assets/ibrmpc_plot1.png" 
+                 alt="Inertial Frame Trajectories" 
+                 style="width: 100%; height: auto; display: block;">
+            <div style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8em; font-weight: bold; color: #374151;">
+              3D Trajectories
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0.75rem; font-size: 0.85em; color: #6b7280; text-align: center; line-height: 1.4;">
+          <strong>Lady (blue)</strong>, <strong>Bandit (red)</strong>, and <strong>Guard (green)</strong> trajectories across LG3, LG4, and LG5 scenarios
+        </p>
+      </div>
+      
+      <!-- Lady-Centered Frame -->
+      <div class="column is-6">
+        <h4 class="subtitle is-6 has-text-centered">Lady-Centered Reference Frame</h4>
+        <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <div style="position: relative;">
+            <img src="../assets/ibrmpc_plot2.png" 
+                 alt="Lady-Centered Reference Frame" 
+                 style="width: 100%; height: auto; display: block;">
+            <div style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.9); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8em; font-weight: bold; color: #374151;">
+              Relative Motion
+            </div>
+          </div>
+        </div>
+        <p style="margin-top: 0.75rem; font-size: 0.85em; color: #6b7280; text-align: center; line-height: 1.4;">
+          Relative trajectories eliminate inertial effects, showing <strong>Bandit-Guard interactions</strong> and strategic positioning
+        </p>
+      </div>
+    </div>
+
+
+<!-- Performance Table -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <h2 class="title is-3 has-text-centered">Performance Analysis</h2>
+        <div style="background: #f8f9fa; border-radius: 10px; padding: 2rem; overflow-x: auto;">
+          <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th><strong>Metric</strong></th>
+                <th><strong>LG3</strong></th>
+                <th><strong>LG4</strong></th>
+                <th><strong>LG5</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="4" style="background-color: #e0f2fe; font-weight: bold;">Closest Lady-Bandit Approach (m)</td>
+              </tr>
+              <tr>
+                <td>Min</td>
+                <td>3.0</td>
+                <td>3.4</td>
+                <td>2.9</td>
+              </tr>
+              <tr>
+                <td>Max</td>
+                <td>17.9</td>
+                <td>13.1</td>
+                <td>19.3</td>
+              </tr>
+              <tr>
+                <td>Mean</td>
+                <td>5.9</td>
+                <td>6.6</td>
+                <td>11.8</td>
+              </tr>
+              <tr>
+                <td>Std Dev</td>
+                <td>4.2</td>
+                <td>3.6</td>
+                <td>5.6</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="background-color: #e0f2fe; font-weight: bold;">Closest Bandit-Guard Approach (m)</td>
+              </tr>
+              <tr>
+                <td>Min</td>
+                <td>230.4</td>
+                <td>469.0</td>
+                <td>130.1</td>
+              </tr>
+              <tr>
+                <td>Max</td>
+                <td>377.6</td>
+                <td>576.4</td>
+                <td>579.2</td>
+              </tr>
+              <tr>
+                <td>Mean</td>
+                <td>276.0</td>
+                <td>531.6</td>
+                <td>426.4</td>
+              </tr>
+              <tr>
+                <td>Std Dev</td>
+                <td>39.8</td>
+                <td>32.1</td>
+                <td>119.4</td>
+              </tr>
+              <tr>
+                <td colspan="4" style="background-color: #e0f2fe; font-weight: bold;">Score</td>
+              </tr>
+              <tr>
+                <td>Min</td>
+                <td>2968.8</td>
+                <td>1823.4</td>
+                <td>1992.6</td>
+              </tr>
+              <tr>
+                <td>Max</td>
+                <td>4362.9</td>
+                <td>2151.7</td>
+                <td>7781.5</td>
+              </tr>
+              <tr>
+                <td>Mean</td>
+                <td>3739.4</td>
+                <td>1945.1</td>
+                <td>2946.9</td>
+              </tr>
+              <tr>
+                <td>Std Dev</td>
+                <td>401.6</td>
+                <td>94.8</td>
+                <td>1653.7</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Competition Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="notification is-success is-light">
+          <h3 class="title is-4">🏆 AIAA KSPDG Challenge Winner</h3>
+          <p class="is-size-5">
+            <strong>1st Place</strong> • 2nd Annual AIAA Non-Cooperative Space Operations Challenge
+          </p>
+          <p style="margin: 1.5rem 0;">
+            Our iBR-MPC framework outperformed all competing methods across three challenging scenarios (LG3, LG4, LG5), demonstrating superior adaptability to unknown opponent strategies in real-time orbital differential games.
+          </p>
+          
+          <div style="background: #f8fdf4; border-radius: 8px; padding: 1.5rem; margin-top: 1.5rem;">
+            <h4 class="title is-6">Competition Performance Summary</h4>
+            <div class="columns">
+              <div class="column">
+                <strong>LG3 Score:</strong> <span style="color: #38bdf8; font-size: 1.2em;">1703.4</span><br>
+                <small>(Best among all teams)</small>
+              </div>
+              <div class="column">
+                <strong>LG4 Score:</strong> <span style="color: #38bdf8; font-size: 1.2em;">2058.4</span><br>
+                <small>(Best among all teams)</small>
+              </div>
+              <div class="column">
+                <strong>LG5 Score:</strong> <span style="color: #38bdf8; font-size: 1.2em;">2670.0</span><br>
+                <small>(Best among all teams)</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publication Status -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="notification is-success is-light">
+          <h3 class="title is-4">📄 Publication Status</h3>
+          <p class="is-size-5">
+            <strong>AIAA Scitech 2026</strong> • Accepted
+          </p>
+          <p>This work has been accepted for presentation at the AIAA Science and Technology Forum and Exposition 2026. The research demonstrates breakthrough results in multi-agent orbital differential games with incomplete information.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Citation -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-3 has-text-centered">Citation</h2>
+        <div class="citation-box">
+@inproceedings{deresa2026sensitivity,<br>
+&nbsp;&nbsp;author = {Deresa, Chala Adane and Kim, Minchae and Kim, Sung Jun and Choi, Han-Lim},<br>
+&nbsp;&nbsp;title = {Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game},<br>
+&nbsp;&nbsp;booktitle = {AIAA Science and Technology Forum and Exposition (SciTech)},<br>
+&nbsp;&nbsp;year = {2026},<br>
+&nbsp;&nbsp;location = {Orlando, FL},<br>
+&nbsp;&nbsp;note = {Accepted}<br>
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>
+      © 2025 Chala Adane Deresa. This project page is adapted from the 
+      <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>.
+    </p>
+  </div>
+</footer>
+
+<script defer src="../assets/main.js"></script>
+<script defer src="../assets/visitor-tracker.js"></script>
+
+<!-- Visitor Statistics -->
+<div id="visitor-stats" class="visitor-subtle fade-in">
+    <div id="visitor-countries" class="visitor-countries-subtle">
+        <!-- Countries will be populated here -->
+    </div>
+</div>
+
+</body>
+</html>

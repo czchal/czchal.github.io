@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions">
+  <meta name="keywords" content="Trajectory Optimization, Multi-Agent, Spacecraft, Inspection, 6-DOF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .hero { background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%); color: white; }
+    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 700; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .author-block a { color: #f0f9ff; text-decoration: none; }
+    .author-block a:hover { text-decoration: underline; }
+    .link-block { margin: 5px; }
+    .button { border-radius: 25px; font-weight: 600; }
+    .section { padding: 3rem 1.5rem; }
+    .container.is-max-desktop { max-width: 960px; }
+    .teaser { background: #f0f9ff; border-radius: 15px; overflow: hidden; }
+    .method-overview { background: linear-gradient(45deg, #f0f9ff, #e0f2fe); border-radius: 15px; padding: 2rem; margin: 2rem 0; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+    .result-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
+    .result-card:hover { transform: translateY(-4px); }
+    .citation-box { background: #f8f9fa; border-left: 4px solid #38bdf8; padding: 1rem; font-family: monospace; border-radius: 0 8px 8px 0; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <span style="font-weight: bold; color: #38bdf8;">Chala Adane Deresa</span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../index.html">Home</a>
+      <a class="navbar-item" href="../about.html">About</a>
+      <a class="navbar-item" href="../publications.html">Publications</a>
+      <a class="navbar-item" href="../blog.html">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="../index.html"><strong>Chala Adane Deresa</strong></a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Dong-Woo Han</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en">Han-Lim Choi</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">KAIST, Laboratory for Information and Control Systems</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-14">
+          <img src="../assets/thumbnails/trajectory-optimization.png" alt="Trajectory Optimization Teaser" style="width: 120%; border-radius: 2px;">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            Multi-agent trajectory optimization enables coordinated multi-agent spacecraft inspection missions with full 6-DOF control.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reliable inspection of resident space objects requires trajectories that maximize sensing quality while respecting the stringent propellant and safety constraints of small inspector satellites. While prior work has explored trajectory planning for such missions, most approaches optimize the vehicle's translational path first and treat attitude control as a secondary consideration. This decoupling can be suboptimal when sensor pointing strongly influences the quality of information collected.
+          </p>
+          <p>
+            We formulate multi-spacecraft inspection as a multiphase six-degree-of-freedom (6-DOF) optimal control problem that simultaneously optimizes each inspector's translation and attitude trajectories. A differentiable visibility metric—incorporating surface-normal alignment, field-of-view constraints, range attenuation, and motion penalties—serves as a proxy for observation quality within the optimizer. Numerical simulations with up to three inspectors and up to 50 inspection points demonstrate that the algorithm produces coordinated, fuel-efficient, information-rich trajectories while ensuring collision avoidance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="method-overview">
+      <h2 class="title is-3 has-text-centered">Methodology</h2>
+      
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-4">Observation Model</h3>
+          <div class="content">
+            <p>We develop a differentiable visibility metric that considers surface-normal alignment, field-of-view constraints, distance attenuation, and motion penalties to quantify observation quality. This enables gradient-based optimization while ensuring realistic sensor constraints.</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <h3 class="title is-4">6-DOF Dynamics</h3>
+          <div class="content">
+            <p>The approach models complete spacecraft motion using Clohessy-Wiltshire equations for translation and quaternion-based attitude dynamics. This allows simultaneous optimization of both translational and rotational trajectories.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-4">Multi-Agent Coordination</h3>
+          <div class="content">
+            <p>The optimization balances control effort against information gain while enforcing safety constraints including collision avoidance and standoff distances. A warm-start strategy using 3-DOF solutions improves convergence.</p>
+          </div>
+        </div>
+        
+        <div class="column">
+          <h3 class="title is-4">Solution Method</h3>
+          <div class="content">
+            <p>We use pseudospectral methods with Legendre-Gauss transcription to solve the optimal control problem. The approach scales to multiple agents (N=3) and numerous inspection points (M=50).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Video Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Demonstration</h2>
+        <div style="background: #f8f9fa; border: 0.2px dashed #38bdf8; border-radius: 10px; padding: 0.3rem; text-align: center; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div>
+            <!-- Embedded Google Drive Video -->
+            <iframe src="https://drive.google.com/file/d/1E3jNF5LZsi5sd3Ac1pwQCQRD8acFkDCT/preview" 
+                    width="720" 
+                    height="405" 
+                    allow="autoplay"
+                    style="border-radius: 8px; border: none;">
+            </iframe>
+          </div>
+        </div>
+        <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visualizations -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Trajectory Visualizations</h2>
+    
+    <!-- Single Agent Comparison -->
+    <div class="columns is-centered" style="margin-bottom: 3rem;">
+      <div class="column is-12">
+        <h3 class="title is-4 has-text-centered">Single-Agent Inspection Strategies</h3>
+        
+        <!-- Information-Prioritized Strategy -->
+        <div class="columns">
+          <div class="column is-6">
+            <h4 class="subtitle is-6 has-text-centered">Information-Prioritized (w=0.05)</h4>
+            <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden;">
+              <iframe src="../assets/spacecraft_inspection_singe_agent_6D0F_2025-07-21_211746_T350.0_w0.05.html" 
+                      width="100%" 
+                      height="400" 
+                      frameborder="0" 
+                      style="display: block;">
+              </iframe>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #6b7280; text-align: center;">
+              Rapid transitions between optimal observation points for maximum information gain
+            </p>
+          </div>
+          
+          <div class="column is-6">
+            <h4 class="subtitle is-6 has-text-centered">Fuel-Efficient (w=0.75)</h4>
+            <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden;">
+              <iframe src="../assets/spacecraft_inspection_singe__realistic_agent_6D0F_2025-07-24_175401_T250.0_w0.75.html" 
+                      width="100%" 
+                      height="400" 
+                      frameborder="0" 
+                      style="display: block;">
+              </iframe>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #6b7280; text-align: center;">
+              Smooth, continuous movements prioritizing fuel efficiency over speed
+            </p>
+          </div>
+        </div>
+        
+        <p style="margin-top: 1rem; font-size: 0.9em; color: #9ca3af; text-align: center;">
+          Path color indicates spacecraft speed, inspection point colors show information density (darker = uninspected)
+        </p>
+      </div>
+    </div>
+
+    <!-- Multi-Agent Results -->
+    <div class="columns is-centered">
+      <div class="column is-12">
+        <h3 class="title is-4 has-text-centered">Multi-Agent Cooperative Inspection</h3>
+        
+        <!-- Two-Agent Scenario -->
+        <div class="columns">
+          <div class="column is-6">
+            <h4 class="subtitle is-6 has-text-centered">Two-Agent Coordination</h4>
+            <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden;">
+              <iframe src="../assets/spacecraft_inspection_two_agent_6D0F_2025-07-21_201919_T200.0_w0.75.html" 
+                      width="100%" 
+                      height="400" 
+                      frameborder="0" 
+                      style="display: block;">
+              </iframe>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #6b7280; text-align: center;">
+              Dual spacecraft coordination with effective workspace partitioning
+            </p>
+          </div>
+          
+          <div class="column is-6">
+            <h4 class="subtitle is-6 has-text-centered">Three-Agent Coordination</h4>
+            <div style="background: #f8f9fa; border: 0.2px solid #38bdf8; border-radius: 8px; overflow: hidden;">
+              <iframe src="../assets/spacecraft_inspection_three_agent_6D0F_2025-07-31_113648_T150.0_w0.5.html" 
+                      width="100%" 
+                      height="400" 
+                      frameborder="0" 
+                      style="display: block;">
+              </iframe>
+            </div>
+            <p style="margin-top: 0.5rem; font-size: 0.85em; color: #6b7280; text-align: center;">
+              Three-agent swarm achieving comprehensive coverage with collision avoidance
+            </p>
+          </div>
+        </div>
+        
+        <div style="background: #e0f2fe; border-radius: 8px; padding: 1.5rem; margin-top: 2rem;">
+          <p style="color: #0369a1; margin: 0; text-align: center;">
+            <strong>Interactive Visualizations:</strong> Use mouse controls to rotate, zoom, and explore the 3D trajectory plots. 
+            Sensor body-frame axes: <span style="color: #dc2626;">Red = x-axis (boresight)</span>, 
+            <span style="color: #2563eb;">Blue = y-axis</span>, <span style="color: #16a34a;">Green = z-axis</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Parameters -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-3 has-text-centered">Mission Parameters</h2>
+        <div style="background: #f8f9fa; border-radius: 10px; padding: 2rem;">
+          <div class="columns">
+            <div class="column">
+              <h4 class="title is-5">Observation Parameters</h4>
+              <ul style="font-family: monospace; font-size: 0.9em;">
+                <li>Discount rate α: 2.0</li>
+                <li>Max visibility angle: π/6 rad</li>
+                <li>Distance sensitivity ρ: 200 m</li>
+                <li>Velocity sensitivity η: 5 m/s</li>
+                <li>Angular rate sensitivity ζ: 0.25 rad/s</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h4 class="title is-5">Mission Constraints</h4>
+              <ul style="font-family: monospace; font-size: 0.9em;">
+                <li>Inspection radius: 800 m</li>
+                <li>Safety radius: 120 m</li>
+                <li>Collision radius: 50 m</li>
+                <li>Target altitude: 500 km</li>
+                <li>Inspection points: 32 (spherical)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Publication Status -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="notification is-info is-light">
+          <h3 class="title is-4">📝 Publication Status</h3>
+          <p class="is-size-5">
+            <strong>CAMSAT 2025</strong> • Accepted Oral Presentation
+          </p>
+          <p>This work has been accepted as oral presentation for the IFAC CAMSAT 2025. The research presents novel contributions to multi-agent trajectory optimization for spacecraft inspection missions.</p>
+          <br>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Citation -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-3 has-text-centered">Citation</h2>
+        <div class="citation-box">
+@inproceedings{deresa2025trajectory,<br>
+&nbsp;&nbsp;title = {Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions},<br>
+&nbsp;&nbsp;author = {Deresa, Chala Adane and Han, Dong-Woo and Choi, Han-Lim},<br>
+&nbsp;&nbsp;booktitle = {IFAC Control Aspect of Multi-Satellite Systems (CAMSAT)},<br>
+&nbsp;&nbsp;year = {2025},<br>
+&nbsp;&nbsp;organization = {IFAC},<br>
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>© 2025 Chala Adane Deresa. This project page is adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>.</p>
+  </div>
+</footer>
+
+<script defer src="../assets/main.js"></script>
+<script defer src="../assets/visitor-tracker.js"></script>
+
+<div id="visitor-stats" class="visitor-subtle fade-in">
+    <div id="visitor-countries" class="visitor-countries-subtle"></div>
+</div>
+
+</body>
+</html>

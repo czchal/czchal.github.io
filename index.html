@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lora:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="assets/main.js"></script>
+    <script defer src="assets/visitor-tracker.js"></script>
 </head>
 <body>
 
@@ -46,14 +47,63 @@
             
             <section class="content-card fade-in">
                 <h2>Selected Publications</h2>
-                <ul>
-                    <li><strong>Chala Adane Deresa</strong>, Minchae Kim, Sung Jun Kim, Han-Lim Choi. "Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game." <em>AIAA Scitech 2026</em>. (Under Review)</li>
-                    <li><strong>Chala Adane Deresa</strong>, Dong-Woo Han, Han-Lim Choi. "Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions." <em>CAMSAT 2025</em>. (Accepted)</li>
-                    <li><strong>Chala Adane Deresa</strong>, Joshua Julian Damanik, Han-Lim Choi. "Hierarchical Navigation in Cluttered Environments for Differential-Drive Robots via Spatio-Temporal Risk and Nonlinear MPC." <em>ICCAS 2025</em>. (Accepted)</li>
-                    <li>Joshua Julian Damanik, Jae-Won Jung, <strong>Chala Adane Deresa</strong>, Han-Lim Choi.  <a href="https://ieeexplore.ieee.org/document/10804084 Lics: Navigation using learned-imitation on cluttered space."target="_blank" rel="noopener"> "Lics: Navigation using learned-imitation on cluttered space." </a><em>IEEE Robotics and Automation Letters</em>, 2024.</li>
-                    <li><strong>Chala Adane Deresa</strong>, Nam Gihun, Jiyun Lee. "Performance Analysis of RAIM-based Integrity Monitoring Algorithm for LADGNSS/Barometer Sensor Integrated Navigation System." <em>Korean Navigation Institute (KONI) Conference</em>, 2023. <strong>(<a href=https://ae.kaist.ac.kr/boards/view/board_news_en/13143 target="_blank" rel="noopener">Best Paper Award </a>)</strong></li>
-                </ul>
-                <p style="text-align: right;"><a href="publications.html">See all publications &raquo;</a></p>
+                <div class="publications-grid">
+                    <article class="publication-item">
+                        <div class="publication-thumbnail">
+                            <img src="assets/thumbnails/mpc-orbital-game.png" alt="MPC Orbital Game" loading="lazy">
+                        </div>
+                        <div class="publication-content">
+                            <h3 class="publication-title"><a href="projects/mpc-orbital-game.html">Sensitivity-Augmented Iterative Best-Response MPC in a Three Player Orbital Differential Game</a></h3>
+                            <p class="publication-authors"><strong>Chala Adane Deresa</strong>, Minchae Kim, Sung Jun Kim, Han-Lim Choi</p>
+                            <p class="publication-venue"><em>AIAA Scitech 2026</em> • <span class="publication-status accepted">Accepted</span></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <div class="publication-thumbnail">
+                            <img src="assets/thumbnails/trajectory-optimization.png" alt="Trajectory Optimization" loading="lazy">
+                        </div>
+                        <div class="publication-content">
+                            <h3 class="publication-title"><a href="projects/trajectory-optimization.html">Trajectory Optimization for Multi-Agent 6-DOF On-Orbit Inspection Missions</a></h3>
+                            <p class="publication-authors"><strong>Chala Adane Deresa</strong>, Dong-Woo Han, Han-Lim Choi</p>
+                            <p class="publication-venue"><em>CAMSAT 2025</em> • <span class="publication-status accepted">Accepted</span></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <div class="publication-thumbnail">
+                            <img src="assets/thumbnails/robot-navigation.png" alt="Robot Navigation" loading="lazy">
+                        </div>
+                        <div class="publication-content">
+                            <h3 class="publication-title"><a href="projects/robot-navigation.html">Hierarchical Navigation in Cluttered Environments for Differential-Drive Robots via Spatio-Temporal Risk and Nonlinear MPC</a></h3>
+                            <p class="publication-authors"><strong>Chala Adane Deresa</strong>, Joshua Julian Damanik, Su-Jeong Park,  Wajih Imliki and Han-Lim Choi</p>
+                            <p class="publication-venue"><em>ICCAS 2025</em> • <span class="publication-status accepted">Accepted</span></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <div class="publication-thumbnail">
+                            <img src="assets/thumbnails/learned-imitation.png" alt="Learned Imitation" loading="lazy">
+                        </div>
+                        <div class="publication-content">
+                            <h3 class="publication-title"><a href="projects/learned-imitation.html">Lics: Navigation using learned-imitation on cluttered space</a></h3>
+                            <p class="publication-authors">Joshua Julian Damanik, Jae-Won Jung, <strong>Chala Adane Deresa</strong>, Han-Lim Choi</p>
+                            <p class="publication-venue"><em>IEEE Robotics and Automation Letters</em> • <span class="publication-status published">2024</span></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <div class="publication-thumbnail">
+                            <img src="assets/thumbnails/raim-navigation.png" alt="RAIM Navigation" loading="lazy">
+                        </div>
+                        <div class="publication-content">
+                            <h3 class="publication-title">Performance Analysis of RAIM-based Integrity Monitoring Algorithm for LADGNSS/Barometer Sensor Integrated Navigation System</h3>
+                            <p class="publication-authors"><strong>Chala Adane Deresa</strong>, Nam Gihun, Jiyun Lee</p>
+                            <p class="publication-venue"><em>Korean Navigation Institute (KONI) Conference</em> • <span class="publication-status award">2023 • <a href="https://ae.kaist.ac.kr/boards/view/board_news_en/13143" target="_blank" rel="noopener">🏆 Best Paper Award</a></span></p>
+                        </div>
+                    </article>
+                </div>
+                <p class="publications-link"><a href="publications.html">See all publications &raquo;</a></p>
             </section>
 
 
@@ -68,98 +118,17 @@
                 <h2>Projects</h2>
                 <p>Information about current and past projects will be updated here soon.</p>
             </section>
-              
-              
-              
-            <!-- Firebase SDKs -->
-            <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+            <section class="content-card fade-in">
+                <h2>Contact</h2>
+                <p>Feel free to reach out for collaborations, research discussions, or any inquiries.</p>
+            </section>
 
-            <div id="visitor-stats" class="content-card fade-in">
-            <h2>🌍</h2>
-            <p id="summary"></p>
-            <ul id="country-list" style="list-style:none; padding-left:0;"></ul>
+            <!-- Visitor Statistics -->
+            <div id="visitor-stats" class="visitor-subtle fade-in">
+                <div id="visitor-countries" class="visitor-countries-subtle">
+                    <!-- Countries will be populated here -->
+                </div>
             </div>
-
-            <script type="module">
-            
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-analytics.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-                apiKey: "AIzaSyC8AXZMQoGk56hIo_HyTk8977C_x7ppk4k",
-                authDomain: "visitor-counter-3a3b5.firebaseapp.com",
-                projectId: "visitor-counter-3a3b5",
-                storageBucket: "visitor-counter-3a3b5.firebasestorage.app",
-                messagingSenderId: "317453956789",
-                appId: "1:317453956789:web:46f99cbae9d70083d770fc",
-                measurementId: "G-9M30F3Y5R3"
-            };
-
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-
-            // --- 2. Get visitor country via IP API ---
-            fetch("https://ipapi.co/json/")
-                .then(res => res.json())
-                .then(async data => {
-                const country = data.country_name;
-                const code = data.country_code;
-
-                if (!country || !code) return;
-
-                const ref = doc(db, "visitors", country);
-
-                const snap = await getDoc(ref);
-                if (snap.exists()) {
-                    await updateDoc(ref, { count: snap.data().count + 1, code: code });
-                } else {
-                    await setDoc(ref, { count: 1, code: code });
-                }
-                });
-
-            // --- 3. Live listener to render counts ---
-            import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-            const colRef = collection(db, "visitors");
-
-            onSnapshot(colRef, snapshot => {
-                const data = {};
-                snapshot.forEach(doc => {
-                data[doc.id] = doc.data();
-                });
-                renderCounts(data);
-            });
-
-            function renderCounts(counts) {
-                const list = document.getElementById("country-list");
-                const summary = document.getElementById("summary");
-                list.innerHTML = "";
-
-                const countries = Object.keys(counts);
-                summary.textContent = `${countries.length} countries visited`;
-
-                countries.forEach(country => {
-                const { count, code } = counts[country];
-                const flag = countryCodeToFlag(code);
-                const li = document.createElement("li");
-                li.textContent = `${flag} ${country}: ${count}`;
-                list.appendChild(li);
-                });
-            }
-
-            function countryCodeToFlag(code) {
-                if (!code) return "🏳️";
-                return code.replace(/./g, char =>
-                String.fromCodePoint(char.charCodeAt(0) + 127397)
-                );
-            }
-            </script>
 
   
         </main>

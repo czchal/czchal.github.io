@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Lics: Navigation using learned-imitation on cluttered space">
+  <meta name="keywords" content="Imitation Learning, Robot Navigation, Machine Learning, Cluttered Environments">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lics: Navigation using learned-imitation on cluttered space</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; }
+    .hero { background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%); color: white; }
+    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 700; }
+    .publication-authors { font-family: 'Google Sans', sans-serif; }
+    .author-block a { color: #f0f9ff; text-decoration: none; }
+    .author-block a:hover { text-decoration: underline; }
+    .link-block { margin: 5px; }
+    .button { border-radius: 25px; font-weight: 600; }
+    .section { padding: 3rem 1.5rem; }
+    .container.is-max-desktop { max-width: 960px; }
+    .teaser { background: #f0f9ff; border-radius: 15px; overflow: hidden; }
+    .method-overview { background: linear-gradient(45deg, #f0f9ff, #e0f2fe); border-radius: 15px; padding: 2rem; margin: 2rem 0; }
+    .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+    .result-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.2s; }
+    .result-card:hover { transform: translateY(-4px); }
+    .citation-box { background: #f8f9fa; border-left: 4px solid #38bdf8; padding: 1rem; font-family: monospace; border-radius: 0 8px 8px 0; }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="../index.html">
+      <span style="font-weight: bold; color: #38bdf8;">Chala Adane Deresa</span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="../index.html">Home</a>
+      <a class="navbar-item" href="../about.html">About</a>
+      <a class="navbar-item" href="../publications.html">Publications</a>
+      <a class="navbar-item" href="../blog.html">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">
+            Lics: Navigation using learned-imitation on cluttered space
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Joshua Julian Damanik</a>,
+            </span>
+            <span class="author-block">
+              <a href="#">Jae-Won Jung</a>,
+            </span>
+            <span class="author-block">
+              <a href="../index.html"><strong>Chala Adane Deresa</strong></a>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=v5hGAWMAAAAJ&hl=en">Han-Lim Choi</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">KAIST, Laboratory for Information and Control Systems</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/document/10804084" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/damanikjosh/the-barn-challenge" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=b2xXbj4M8x8" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-video"></i></span>
+                  <span>Video</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered">
+        <div class="column is-10">
+          <img src="https://damanikjosh.com/assets/images/lics_diagram.jpg" alt="LiCS Training Pipeline Architecture" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+            <strong>Figure 1:</strong> Training pipeline diagram of the Learned-imitation on Cluttered Space (LiCS) model.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            In this letter, we propose a robust and fast navigation
+            system in a narrow indoor environment for UGV (Unmanned
+            Ground Vehicle) using 2D LiDAR and odometry. We used
+            behavior cloning with Transformer neural network to learn
+            the optimization-based baseline algorithm. We inject Gaussian
+            noise during expert demonstration to increase the robustness of
+            learned policy. We evaluate the performance of LiCS using both
+            simulation and hardware experiments. It outperforms all other
+            baselines in terms of navigation performance and can maintain
+            its robust performance even on highly cluttered environments.
+            During the hardware experiments, LiCS can maintain safe
+            navigation at maximum speed of 1.5 m/s.         </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video Demo</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/b2xXbj4M8x8" 
+                  frameborder="0" 
+                  allow="autoplay; encrypted-media" 
+                  allowfullscreen
+                  style="width: 100%; height: 400px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);"></iframe>
+        </div>
+        <h2 class="subtitle has-text-centered" style="margin-top: 1rem;">
+          Demonstration of LiCS navigation system in cluttered indoor environments
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Method -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="method-overview">
+      <h2 class="title is-3 has-text-centered">Method Overview</h2>
+      
+      <div class="columns">
+        <div class="column">
+          <h3 class="title is-4">Behavior Cloning with Transformer</h3>
+          <div class="content">
+            <p>LiCS uses behavior cloning with Transformer neural network to learn from optimization-based expert demonstrations:</p>
+            <ul>
+              <li><strong>Sensor Input:</strong> 2D LiDAR and odometry data</li>
+              <li><strong>Expert Policy:</strong> Optimization-based baseline algorithm</li>
+              <li><strong>Neural Architecture:</strong> Transformer with attention mechanism</li>
+              <li><strong>Output:</strong> Direct velocity commands (v, ω)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="column">
+          <h3 class="title is-4">Robustness Enhancement</h3>
+          <div class="content">
+            <p>Key techniques for improving robustness and generalization:</p>
+            <ul>
+              <li><strong>Noise Injection:</strong> Gaussian noise during expert demonstrations</li>
+              <li><strong>Cluttered Environments:</strong> Training in narrow indoor spaces</li>
+              <li><strong>Safe and Fast Navigation:</strong> Safe navigation at up to 1.5 m/s</li>
+              <li><strong>Real-time Control:</strong> 20 Hz control frequency</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comparative Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-10">
+        <h2 class="title is-3">Comparative Results</h2>
+        <img src="https://damanikjosh.com/assets/images/lics_result.png" alt="LiCS Comparative Results" style="width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
+        <h2 class="subtitle has-text-centered">
+          <strong>Figure 2:</strong> Comparative result with baseline algorithms showing LiCS performance across different metrics.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quantitative Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+    
+    <div class="columns is-centered">
+      <div class="column is-10">
+        <div class="table-container" style="background: white; border-radius: 10px; padding: 2rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <h3 class="title is-4 has-text-centered" style="margin-bottom: 2rem;">Performance Results on Benchmark Worlds</h3>
+          <div style="overflow-x: auto;">
+            <table class="table is-striped is-hoverable is-fullwidth" style="min-width: 800px;">
+              <thead style="background-color: #f0f9ff;">
+                <tr>
+                  <th rowspan="2" style="vertical-align: middle; text-align: center; border-right: 2px solid #e5e7eb;">Algorithm</th>
+                  <th colspan="5" style="text-align: center; border-right: 2px solid #e5e7eb;">Success (%) ↑</th>
+                  <th colspan="5" style="text-align: center; border-right: 2px solid #e5e7eb;">Avg. Time (s) ↓</th>
+                  <th colspan="5" style="text-align: center;">Avg. Score ↑</th>
+                </tr>
+                <tr style="font-size: 0.85em;">
+                  <th>1.2</th><th>1.4</th><th>1.6</th><th>1.8</th><th style="border-right: 2px solid #e5e7eb;">2.0</th>
+                  <th>1.2</th><th>1.4</th><th>1.6</th><th>1.8</th><th style="border-right: 2px solid #e5e7eb;">2.0</th>
+                  <th>1.2</th><th>1.4</th><th>1.6</th><th>1.8</th><th>2.0</th>
+                </tr>
+              </thead>
+              <tbody style="font-size: 0.9em;">
+                <tr>
+                  <td><strong>DWA</strong></td>
+                  <td>74.24</td><td>67.68</td><td>69.70</td><td>70.20</td><td style="border-right: 2px solid #e5e7eb;">62.63</td>
+                  <td>15.89</td><td>14.79</td><td>16.15</td><td>16.28</td><td style="border-right: 2px solid #e5e7eb;">15.96</td>
+                  <td>0.30</td><td>0.28</td><td>0.28</td><td>0.28</td><td>0.24</td>
+                </tr>
+                <tr>
+                  <td><strong>APPLR</strong></td>
+                  <td>79.29</td><td>73.74</td><td>74.24</td><td>73.74</td><td style="border-right: 2px solid #e5e7eb;">75.76</td>
+                  <td>15.68</td><td>16.15</td><td>15.98</td><td>15.48</td><td style="border-right: 2px solid #e5e7eb;">15.72</td>
+                  <td>0.31</td><td>0.29</td><td>0.29</td><td>0.29</td><td>0.30</td>
+                </tr>
+                <tr>
+                  <td><strong>EBand</strong></td>
+                  <td>59.09</td><td>47.98</td><td>51.52</td><td>42.42</td><td style="border-right: 2px solid #e5e7eb;">42.42</td>
+                  <td>11.01</td><td>9.77</td><td>8.69</td><td>7.86</td><td style="border-right: 2px solid #e5e7eb;">8.38</td>
+                  <td>0.29</td><td>0.24</td><td>0.26</td><td>0.21</td><td>0.21</td>
+                </tr>
+                <tr>
+                  <td><strong>E2E</strong></td>
+                  <td>70.71</td><td>75.25</td><td>76.77</td><td>76.26</td><td style="border-right: 2px solid #e5e7eb;">78.79</td>
+                  <td>9.45</td><td>7.89</td><td>7.13</td><td>6.13</td><td style="border-right: 2px solid #e5e7eb;">5.91</td>
+                  <td>0.35</td><td>0.38</td><td>0.38</td><td>0.38</td><td>0.39</td>
+                </tr>
+                <tr>
+                  <td><strong>LfH</strong></td>
+                  <td>51.52</td><td>46.97</td><td>47.47</td><td>47.47</td><td style="border-right: 2px solid #e5e7eb;">43.94</td>
+                  <td>19.25</td><td>14.10</td><td>14.12</td><td>16.32</td><td style="border-right: 2px solid #e5e7eb;">12.79</td>
+                  <td>0.21</td><td>0.21</td><td>0.22</td><td>0.21</td><td>0.21</td>
+                </tr>
+                <tr>
+                  <td><strong>FSMT</strong></td>
+                  <td>98.99</td><td>99.49</td><td>96.46</td><td>89.39</td><td style="border-right: 2px solid #e5e7eb;">78.28</td>
+                  <td>8.19</td><td>7.48</td><td>6.51</td><td>6.01</td><td style="border-right: 2px solid #e5e7eb;">6.18</td>
+                  <td>0.495</td><td>0.50</td><td>0.48</td><td>0.45</td><td>0.39</td>
+                </tr>
+                <tr style="background-color: #e0f2fe; font-weight: bold;">
+                  <td><strong>LiCS (Ours)</strong></td>
+                  <td><span style="color: #38bdf8;">100.00</span></td><td><span style="color: #38bdf8;">97.98</span></td><td><span style="color: #38bdf8;">97.98</span></td><td><span style="color: #38bdf8;">92.93</span></td><td style="border-right: 2px solid #e5e7eb;"><span style="color: #38bdf8;">87.37</span></td>
+                  <td><span style="color: #38bdf8;">7.90</span></td><td><span style="color: #38bdf8;">6.82</span></td><td><span style="color: #38bdf8;">6.12</span></td><td><span style="color: #38bdf8;">5.51</span></td><td style="border-right: 2px solid #e5e7eb;"><span style="color: #38bdf8;">4.84</span></td>
+                  <td><span style="color: #38bdf8;">0.500</span></td><td><span style="color: #38bdf8;">0.49</span></td><td><span style="color: #38bdf8;">0.49</span></td><td><span style="color: #38bdf8;">0.46</span></td><td><span style="color: #38bdf8;">0.44</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="is-size-7 has-text-centered" style="margin-top: 1.5rem; color: #6b7280;">
+            <strong>Table I:</strong> Performance results on benchmark worlds with static global point, consisting of waypoints provided by world dataset.<br>
+            Each experiment on each world was performed in three trials. Numbers in header (1.2-2.0) represent different speed settings.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BARN Challenge Achievement -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-10 has-text-centered">
+        <h2 class="title is-3">🥇 Competition Success</h2>
+        <img src="https://damanikjosh.com/assets/images/barn-challenge.png" alt="BARN Challenge Winner" style="width: 80%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-bottom: 1rem;">
+        <div class="notification is-success is-light" style="margin-top: 1rem;">
+          <h3 class="title is-4">BARN Challenge Winner - ICRA 2024</h3>
+          <p class="is-size-5">
+            🥇 <strong>First Place</strong> in both Simulation and Hardware categories
+          </p>
+          <p>LiCS demonstrated superior performance in the BARN (Benchmark Autonomous Robot Navigation) Challenge, showcasing robust navigation capabilities in cluttered environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Publication Status -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8 has-text-centered">
+        <div class="notification is-primary is-light">
+          <h3 class="title is-4">📄 Published</h3>
+          <p class="is-size-5">
+            <strong>IEEE Robotics and Automation Letters</strong> • 2024
+          </p>
+          <p>This work has been published in IEEE Robotics and Automation Letters and is available online.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Citation -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <h2 class="title is-3 has-text-centered">Citation</h2>
+        <div class="citation-box">
+@article{damanik2024lics,<br>
+&nbsp;&nbsp;author = {Damanik, Joshua Julian and Jung, Jae-Won and Deresa, Chala Adane and Choi, Han-Lim},<br>
+&nbsp;&nbsp;title = {Lics: Navigation using learned-imitation on cluttered space},<br>
+&nbsp;&nbsp;journal = {IEEE Robotics and Automation Letters},<br>
+&nbsp;&nbsp;year = {2024},<br>
+&nbsp;&nbsp;doi = {10.1109/LRA.2024.3498380}<br>
+}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>© 2025 Chala Adane Deresa. This project page is adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>.</p>
+  </div>
+</footer>
+
+<script defer src="../assets/main.js"></script>
+<script defer src="../assets/visitor-tracker.js"></script>
+
+<div id="visitor-stats" class="visitor-subtle fade-in">
+    <div id="visitor-countries" class="visitor-countries-subtle"></div>
+</div>
+
+</body>
+</html>
